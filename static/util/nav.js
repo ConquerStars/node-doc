@@ -1,5 +1,6 @@
 const fs = require('fs')
 const marked = require('marked')
+const process = require('child_process')
 
 // 获取路由配置
 const docRouter = require('./routerCtr')
@@ -76,15 +77,20 @@ let NavTurnHtml = ( arr ) => {
   return navTree + '</ul>'
 }
 
-function randerHtmlMould( repath ){
+function randerHtmlMould ( repath ){
+// // 原githook更新远程仓库的替代方案 待完善
+//   process.exec('git pull', {cwd:docRouter.orignPath},(error, stdout, stderr) => {
+//     console.log(stdout)
+//   })
+
   let navData = getNavStructure(docRouter.orignPath, '') // 获取侧边导航栏的数据结构
 
   let navTree = NavTurnHtml(navData) // 渲染成固定html结构
 
   let readMd = marked(fs.readFileSync(repath,'utf-8'))
-  
+
   // 嵌套进html模板并返回
   return randerHtml(navTree, readMd) 
+  
 };
-
 module.exports = randerHtmlMould

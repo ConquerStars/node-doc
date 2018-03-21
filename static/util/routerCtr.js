@@ -1,5 +1,5 @@
 const docRouter = {
-    orignPath: 'E:/daheng/markdown-docs/',
+    orignPath: 'F:/nodejs/markdown-doc/',
     // orignPath:'/home/wwwroot/markdown-docs/',
     orignUrl: 'http://localhost',
     // orignUrl: 'http://web2.daheng.co',

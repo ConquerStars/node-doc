@@ -90,7 +90,8 @@ function randerHtmlMould ( repath ){
   let readMd = marked(fs.readFileSync(repath,'utf-8'))
 
   // 嵌套进html模板并返回
-  return randerHtml(navTree, readMd) 
-  
+  return randerHtml(navTree, readMd)
+
+
 };
 module.exports = randerHtmlMould
